@@ -19,7 +19,7 @@ public class CreditCardDaoImpl implements CreditCardDAO
 
 
 	@Override
-	    public CreditCard create(Connection connection, CreditCard creditCard, Long playerID)
+	    public CreditCard create(Connection connection, CreditCard creditCard, Long customerID)
 	            throws SQLException, DAOException {
 	        if (creditCard.getId() != null) {
 	            throw new DAOException("Trying to insert CreditCard with NON-NULL ID");
@@ -155,7 +155,7 @@ public class CreditCardDaoImpl implements CreditCardDAO
 	    @Override
 	    public int deleteForCustomer(Connection connection, Long customerID) throws SQLException, DAOException {
 	        PreparedStatement ps = null;
-	        if (playerID == null) {
+	        if (customerID == null) {
 	            throw new DAOException("Trying to retrieve Credit Card with Null Customer ID");
 	        }
 	        try {
